@@ -1,0 +1,28 @@
+Locators for WebElements:
+==============================
+By CSS ID: find_element_by_id
+By CSS class name: find_element_by_class_name
+By name attribute: find_element_by_name
+By DOM structure or xpath: find_element_by_xpath
+By link text: find_element_by_link_text
+By partial link text: find_element_by_partial_link_text
+By HTML tag name: find_element_by_tag_name
+
+===================================================
+
+
+ID  ---> Identify the WebElement using the ID attribute----> driver.findElement(By.id(“IdValue”));
+
+Name---> Identify the WebElement using the Name attribute----> driver.findElement(By.name(“nameValue”));
+
+ClassName---> Use the Class attribute for identifying the object---> driver.findElement(By.className(“classValue”));
+
+LinkText---> Use the text in hyperlinks to locate the WebElement---> driver.findElement(By.linkText(“textofLink”));
+
+Partial LinkText---> Use a part of the text in hyperlinks to locate the desired WebElement---> driver.findElement(By.partialLinkText(“PartialTextofLink”));
+
+TagName--> Use the TagName to locate the desired WebElement---> driver.findElement(By.tagName(“htmlTag”));
+
+CssSelector---> CSS used to create style rules in web page is leveraged to locate the desired WebElement---> driver.findElement(By.cssSelector(“cssValue”));
+
+XPath---> Use XPath to locate the WebElement---> driver.findElement(By.xpath(“xpathValue”));

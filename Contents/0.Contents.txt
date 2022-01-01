@@ -1,0 +1,13 @@
+Selenium Part-1 Contents
+=============================
+1. Disadvantages of Manual Testing
+2. Advantages of Automation
+3. Advantages of Selenium
+4. Disadvantages of Selenium
+5. Selenium Flavors
+6. How to open browser 
+7. Selenium Architecture
+8. Webdriver and its Elements
+9. Basic of HTML
+10. WebElements and its methods
+11. Locators

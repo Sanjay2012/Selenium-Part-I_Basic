@@ -1,0 +1,298 @@
+WebElements:\
+====================
+1. sendkeys();
+2. click();
+3. isEnabled();
+4. isSelected();
+5. isDisplay();
+6. getText();
+7. clear();
+8. getSize();
+9. getAttribute();
+10. getCssValue();
+11. getTagName();
+12. getLocation();
+13. submit();
+=================================================
+
+List of Selenium WebElement Commands
+=======================================================
+7.clear( ) command
+
+When using this command, if the element in question is a text entry, its value will be cleared. 
+It doesn’t require a parameter and returns nothing.
+
+Syntax:
+
+element.clear();
+
+The clear() method does not affect other web elements. The text entry elements here are INPUT and TEXTAREA.
+
+Code:
+
+// Create WebElement
+WebElement eleClear = driver.findElement(By.id("TextBox")); 
+// Perform clear operation
+eleClear.clear();
+// OR
+// Clear particular WebElement e.g: Textbox.
+driver.findElement(By.id("TextBox")).clear();
+============================================================
+1. sendKeys() command
+
+sendKeys command allows the user to type content automatically into an editable field while executing tests. 
+These fields are web elements that can be identified using locators like element id, name, class name, etc.
+
+Syntax:
+
+element.sendKeys(“text”);
+
+This method uses CharSequence as a parameter. It returns nothing. It works with text entry elements such as INPUT and TEXTAREA.
+
+Code:
+
+// Create WebElement
+WebElement elesendKeys = driver.findElement(By.id("TextBox"));
+// Perform sendKeys operation
+elesendKeys.sendKeys("Cheese");
+// OR
+// Send value to particular WebElement e.g: Textbox.
+driver.findElement(By.id("TextBox")).sendKeys("Cheese");
+
+=======================================================================
+2. isDisplayed() command
+
+The isDisplayed command in Selenium verifies if a certain element is present and displayed. 
+If the element is displayed, then the value returned is true. If not, then the value returned is a NoSuchElementFound exception.
+
+Syntax:
+
+element.isDisplayed();
+
+The code below verifies if an element with the id attribute value next is displayed.
+
+boolean eleSelected= driver.findElement(By.xpath("xpath")).isDisplayed();
+
+Full code:
+
+WebElement element = driver.findElement(By.id("UserName"));
+boolean status = element.isDisplayed();
+//Or can be written as
+boolean status = driver.findElement(By.id("UserName")).isDisplayed();
+Note: If an element is present on a web page but its property is set to hidden, the Selenium WebDriver isDisplayed method will return NoSuchElementFound. 
+This is because even though the element is present in the DOM, it is not visible to users.
+
+
+==============================================================================
+3. isSelected() command
+
+This command only works on input elements such as radio buttons, checkboxes, select options, and menu items. 
+It is used to determine if an element is selected. If the specified element is selected, the value returned is true. If not, the value returned is false.
+
+Syntax:
+
+element.isSelected();
+
+Code:
+
+WebElement element = driver.findElement(By.id("Sex-Male"));
+boolean status = element.isSelected();
+//Or can be written as
+boolean staus = driver.findElement(By.id("Sex-Male")).isSelected();
+
+================================================================
+4. submit() command
+
+This command is especially useful when it comes to interacting with forms (or an element within a form) on a web page. 
+It doesn’t require a parameter and returns nothing.
+
+As evident from its name, the command submits relevant information (as required) on a website. 
+If the action triggered by this command results in a change in the current web page, the method will wait until the new page loads.
+
+Syntax:
+
+element.submit();
+
+Code:
+
+WebElement element = driver.findElement(By.id("SubmitButton"));
+element.submit();
+//Or can be written as
+driver.findElement(By.id("SubmitButton")).submit();
+WebElement element = driver.findElement(By.id("SubmitButton"));
+element.submit();
+//Or can be written as
+driver.findElement(By.id("SubmitButton")).submit();
+
+=====================================================
+5. isEnabled() command
+
+This Selenium command verifies if an element is enabled on the web page. 
+If the element is enabled, it returns a true value. If not, it returns a false value.
+
+Syntax:
+
+element.isEnabled();
+
+The code below verifies if an element with the id attribute value next is enabled.
+
+boolean eleEnabled= driver.findElement(By.xpath(“xpath”)).isEnabled();
+
+Full Code:
+
+// Create WebElement
+WebElement eleEnabled = driver.findElement(By.id("TextBox"));
+// Perform isEnabled operation
+eleEnabled.isEnabled();
+// OR
+// Verify WebElement is Enabled or Not? e.g: Radio / Checkbox.
+driver.findElement(By.id("Text")).isEnabled();
+
+============================================================
+6. getLocation() command
+
+This command retrieves the location of a specified element on a web page. 
+It does not require a parameter and returns the Point object as its result. 
+The X and Y coordinates of the element can be derived from the Point object returned.
+
+Syntax:
+
+element.getLocation();
+
+Code:
+
+WebElement element = driver.findElement(By.id("SubmitButton"));
+Point point = element.getLocation();
+System.out.println("X cordinate : " + point.x + "Y cordinate: " + point.y);
+
+==============================================================
+
+8. getText() command
+
+This command retrieves the text within a specific web element. 
+This includes the inner text as well as the sub-elements sans whitespace. 
+It doesn’t require a parameter and returns a string value as its result. This method is often used to verify labels, messages, error, and other elements (involving text) that are displayed to website visitors.
+
+Syntax:
+
+element.getText();
+
+Code:
+
+// Create WebElement
+WebElement elegetText = driver.findElement(By.id("TextBox"));
+// Perform getText operation
+elegetText.getText();
+// OR
+// Get text of Particular WebElement &amp; Store into String
+driver.findElement(By.id("TextBox")).getText();
+===================================================================
+
+
+9. getTagName() command
+
+This method retrieves the tag name of the specified element. 
+It does not require a parameter and returns a string value as its result.
+
+Syntax:
+
+element.getTagName();
+
+This command does not return the value of the name attribute. 
+It returns the tag. For example, if the code is <input name=”foo”/>, then this command will return the tag, i.e. “input”.
+
+Code:
+
+// Create WebElement
+WebElement elegetTagName = driver.findElement(By.id("TextBox"));
+// Perform getTagName operation
+elegetTagName.getTagName();
+// OR
+// Able to get TagName of Particular WebElement &amp; Store into String
+driver.findElement(By.id("TextBox")).getTagName();
+// Create WebElement
+WebElement elegetTagName = driver.findElement(By.id("TextBox"));
+// Perform getTagName operation
+elegetTagName.getTagName();
+// OR
+// Able to get TagName of Particular WebElement &amp; Store into String
+driver.findElement(By.id("TextBox")).getTagName();
+====================================================================
+
+10. getCssValue() command
+
+This command retrieves the CSS property value of a specified element. It does not require a parameter and returns a string value as its result.
+
+Syntax:
+
+element.getCssValue();
+
+Color values must be returned as rgba strings. For example, if the “background-color” property is set as “green” in the HTML source, 
+the value returned by the command will be “rgba(0, 255, 0, 1)”.
+Shorthand CSS properties (e.g. font, background, border, margin, border-top, margin-top, padding, padding-top, outline, list-style, pause, cue) are not returned, as required with DOM CSS2 specifications. Access the longhand properties directly in order to access the desired values.
+Code:
+
+//Locating textBox element using CSS Selector
+WebElement textBox = driver.findElement(By.cssSelector("div#textBox "));
+
+//Performing sendKeys operation on the element
+textBox.sendKeys("stqatools");
+==================================================================
+
+11. getAttribute() command
+
+This command retrieves the attribute value of a specified element. It uses String as the parameter and returns a string value as its result.
+
+Syntax:
+
+element.getAttribute();
+
+Code:
+
+WebElement element = driver.findElement(By.id("SubmitButton"));
+String attValue = element.getAttribute("id"); //This will return "SubmitButton"
+=====================================================================
+
+12. click() command
+
+The click() command lets the tester replicate the click action on a button, link, radio button or checkbox. In Webdriver, the click occurs after the element is found. In Selenium IDE, the recorder identifies the element, the command itself simply performs the click.
+
+Syntax:
+
+element.click();
+
+Code:
+
+// Create WebElement
+WebElement eleclick = driver.findElement(By.id("TextBox"));
+// Perform click operation
+eleclick.click();
+// OR
+// Click on any WebElement e.g: Button.
+driver.findElement(By.id("Button_Id")).click();
+// Create WebElement
+WebElement eleclick = driver.findElement(By.id("TextBox"));
+// Perform click operation
+eleclick.click();
+// OR
+// Click on any WebElement e.g: Button.
+driver.findElement(By.id("Button_Id")).click();
+======================================================================
+
+13. getSize() command
+
+This command retrieves the height and width of a specific rendered element. It does not require a parameter and returns the Dimension object as its result.
+
+Syntax:
+
+element.getSize();
+
+Code:
+
+WebElement element = driver.findElement(By.id("SubmitButton"));
+Dimension dimensions = element.getSize();
+System.out.println(“Height :” + dimensions.height + ”Width : "+ dimensions.width);
+
+
+
+===========================================================

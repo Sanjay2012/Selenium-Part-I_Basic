@@ -1,0 +1,332 @@
+WebDriver and Its Methods:
+==============================
+1. get();
+2. getTitle();
+3. getCurrentUrl();
+4. maximize();
+5. close()
+6. quite();
+7. navigate();
+8. setSize();
+9. setPosition();
+=========================================
+
+get()
+getCurrentUrl();
+getTitle()
+findElements()
+findElement()
+getPageSource()
+close()
+quit()
+-================================================
+Method Name :- get()
+Syntax: get(url)
+Example: driver.get();
+Purpose: It will load a new web page in the current browser window. This is done using an http get operation, and the method will block until the load is complete.
+Parameters: URL - The URL to load and it should be a fully qualified URL
+
+=======================================================
+Method Name: getCurrentUrl()
+Syntax: getCurrentUrl()
+Example: driver.getCurrentUrl();
+Purpose: Gets a string representing the current URL that the browser is opened.
+Returns: The URL of the page currently loaded in the browser
+=======================================================
+
+Method Name: getTitle()
+Syntax: getTitle()
+Example: driver.getTitle();
+Purpose: Gets the title of the current web page.
+Returns: The title of the current page, with leading and trailing white space stripped, or null if one is not already set
+
+===========================================================
+Method Name: findElements()
+Syntax: findElements(By by)
+Example: driver.findElements(By.xpath("//");
+Purpose: Find all elements within the current page using the given mechanism.
+Parameters: By - The locating mechanism to use
+Returns: A list of all WebElements, or an empty list if nothing matches
+================================================
+
+Method Name: findElement()
+Syntax: WebElement findElement(By by)
+Example: driver.findElements(By.xpath("//");
+Purpose: Find the first WebElement using the given method.
+Parameters: By - The locating mechanism
+Returns: The first matching element on the current page
+Throws: NoSuchElementException - it will return exception if no matching elements are found
+
+================================================
+
+Method Name: getPageSource()
+Syntax: getPageSource()
+Example: driver.getPageSource();
+Purpose: Get the source of the currently loaded page. If the page has been modified after loading (for example, by Javascript) there is no guarantee that the returned text is that of the modified page.
+Returns: The source of the current page
+=====================================================
+
+Method Name: close()
+Syntax: void close()
+Example: driver.close();
+Purpose: Close the current window, if there are multiple windows, it will close the current window which is active and quits the browser if it's the last window opened currently.
+============================================
+
+Method Name: quit()
+Syntax: void quit()
+Example: driver.quit();
+Purpose: Quits this driver instance, closing every associated window which is opened.
+
+
+===================================================
+Method Name: getWindowHandles()
+Syntax: Set getWindowHandles()
+Example: driver.getWindowHandles();
+Purpose: Return a set of window handles which can be used to iterate over all the open windows of this Webdriver instance by passing them to switchTo().WebDriver.Options.window()
+Returns: A set of window handles which can be used to iterate over all the open windows.
+
+=========================================================
+Method Name: getWindowHandle()
+Syntax: String getWindowHandle()
+Example: driver.getWindowHandle();
+Parameter: Return an opaque handle to this window that uniquely identifies it within this driver instance. This can be used to switch to this window at a later date
+switchTo
+WebDriver.TargetLocator switchTo()
+The next future commands will be performed to a different frame or window.
+Returns: A Target Locator which can be used to switch or select a frame or window
+
+
+===========================================================
+Method Name: navigate()
+Syntax: WebDriver.Navigation navigate()
+Example: driver.navigate.to("");
+Purpose: An abstraction allowing the driver to access the browser's history and to navigate to a given URL.
+Returns: A WebDriver.Navigation that allows the selection of what to do next
+
+=========================================================
+
+Method Name: manage()
+Syntax: WebDriver.Options manage()
+Purpose: Gets the Option interface
+Returns: An option interface
+
+
+====================================================================================
+
+package com.methodsOfWebDriver;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class OpenBrowsers {
+
+	public static void main(String[] args) {
+		
+		
+				// Set the driver path
+		
+				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "//Drivers/chromedriver.exe");
+				WebDriver d1=new ChromeDriver();
+
+				d1.get("https://www.facebook.com/");
+				System.out.println("Open url in chrome Browser");
+				
+				d1.quit();
+				
+				
+				
+				
+				// // Set the driver path
+				
+				System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "//Drivers/geckodriver.exe");
+				WebDriver d2 = new FirefoxDriver();
+
+				d2.get("https://www.facebook.com/");
+				System.out.println("Open url in Firefox Browser"); 
+				
+				d2.quit();
+				
+				
+				// Set the driver path
+				
+				System.setProperty("webdriver.edge.driver", System.getProperty("user.dir") + "//Drivers/msedgedriver.exe");
+				
+				// Start Edge Session
+				WebDriver d3 = new EdgeDriver();
+
+				d3.get("https://www.facebook.com/");
+				System.out.println("Open url in edge Browser");
+				
+				d3.quit();
+	}
+
+}
+===============================================================================
+
+
+package com.methodsOfWebDriver;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class WebdriverMethod1 {
+	
+	/*Methods of Webdriver
+	 * 1. get()
+	 * 2. getTitle()
+	 * 3. getCurentUrl()
+	 * 4. close()
+	 */
+	
+
+	public static void main(String[] args) {
+		
+		// **Driver instantiation**
+		
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "//Drivers/chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		
+		// 1. get() method to open application
+
+		driver.get("https://www.facebook.com/");
+		
+		// 2. getTitle() -- method to get a title of webpage. Return type is String
+		
+		String title = driver.getTitle();
+		System.out.println(title);
+		
+		String exp="Facebook – log in or sign up";
+		if (title.equalsIgnoreCase(exp)) {
+			System.out.println("Navigated to correct Webpage");
+			
+		}else {
+			System.out.println("Navigated to wrong Webpage");
+		}
+		
+		
+		// 3. getCurentUrl()-- Method used to get current url of webpage as an outpur. Return type is String
+		
+		String url = driver.getCurrentUrl();
+		System.out.println(url);
+		
+		
+		// 4. close()==> used to close the current tab od a browser
+		// closes only the current window on which Selenium is running automated tests. 
+		// The WebDriver session, however, remains active
+		
+		driver.close();
+		
+		
+
+
+	}
+
+}
+====================================================================
+
+package com.methodsOfWebDriver;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class WebdriverMethod2 {
+
+	public static void main(String[] args) {
+		
+		/*Methods of Webdriver
+		 * 1. maximize()
+		 * 2. navigate()()
+		 * 3. quite()
+		 */
+		
+				// set driver path
+		
+				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "//Drivers/chromedriver.exe");
+				
+				WebDriver driver=new ChromeDriver(); // start chrome session
+
+				driver.get("https://www.facebook.com/");  // open url in browser
+				
+				//1.  maximize()===> used to maximize the size of browser
+				
+				driver.manage().window().maximize();
+				
+				driver.close();
+				
+				
+				
+			/*2. naviagate()===> used to open an application
+			 * another usage
+			 * a. forword() 
+			 * b. back()
+			 * c. refresh*/
+				
+				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "//Drivers/chromedriver.exe");
+				
+				WebDriver d1=new ChromeDriver(); 
+
+				d1.navigate().to("https://www.facebook.com/"); 
+				d1.manage().window().maximize();
+				d1.navigate().to("https://www.google.co.in/");
+				d1.navigate().back();
+				d1.navigate().forward();
+				d1.navigate().refresh();
+				
+				//3. quite()===> method closes all browser windows and ends the WebDriver session
+				
+				d1.quit();
+	}
+
+}
+===============================================================
+
+package com.methodsOfWebDriver;
+
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class WebdriverMethod3 {
+	
+	/*WebDriver Methods
+	 * 1. setSize()
+	 * 2. setPosition()*/
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "//Drivers/chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+
+		driver.get("https://www.facebook.com/");
+		driver.manage().window().maximize();
+		Thread.sleep(5000);
+		
+		// setSize()==> used to change the size of a browser, which accepts "Dimention" Arguments
+		
+		Dimension d=new Dimension(50, 80);
+		driver.manage().window().setSize(d);
+		Thread.sleep(5000);
+		
+		//setPosition()==>used to change position of browser window
+		// it accepts the "Point" argument
+		
+		Point p=new Point(600, 600);
+		driver.manage().window().setPosition(p);
+		Thread.sleep(5000);
+		
+		driver.quit();
+	
+		
+	
+		
+		
+		
+		
+		
+
+	}
+
+}
+=====================================================

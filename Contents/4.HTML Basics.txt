@@ -1,0 +1,21 @@
+Why HTML coding required in selenium
+Answer:To identify then elements uniquly and to perform actions with the help of selenium
+
+Summery:
+-------
+1. To create webpage ==>  "html" keyword
+2. Every keyword should be closed withing angular braces<> using single forword slash
+3. To create element ==>  "input" keyword
+4. To create list ==> "select keyword" 
+5. To create link ==> "a" with hyper reference (href)
+6. To create webtable ==> "table" keyword
+7. To create image ==> "img" keyword
+
+-------------
+tagname:html, title, body, table etc.
+attribute:always present in key pair    <attribute name>="<attribute value>"
+text:present between angular baraces(> <) >text<==> 
+
+=================================================
+
+
