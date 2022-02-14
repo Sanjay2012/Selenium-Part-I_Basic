@@ -1,0 +1,283 @@
+Session-1
+----------------------
+Agenda
+===========================
+1. Defination
+#  Drowbacks of Manual testing
+2. Pros of Automation testing
+3. Tools available for web autmation
+4. Adv/ dis of Selenium
+5. OOPS concepts to understand automation
+6. Selenium flavors
+7. Selenium Architecture
+8. How to open a browser in selenium
+
+-------------------------------------------------
+# Defination:
+Testing an app feature/ functionality with help of automation tool & executing test script.
+
+# Drawbacks of Manual testing
+---------------------------------------
+1. Compatability testing is dificult (browsers/OS)
+2. Test cycle duration will be increase
+3. More effort required
+4. Regression testing is time consuming
+---------------------------------------------------------
+
+# Advantages of Automation Testing
+--------------------------------------
+1. Reusability of code/ test script (open browser/ Wait functionality)
+2. Compatability testing is easy
+3. Less human efforts are required
+4. Project duration is reduced
+5. Regression testing (High level/ E2E test cases) required less time
+6. Cost of project reduced
+7. It is Reliable & Efficient
+
+# Then why companies prefor manual testing first?
+Ans: Stability 
+--> we are doing automation built is stable.
+--> Choosing automation test cases:
+     - E2E & High level
+
+
+# When we should do the automation?==> Built is stable
+-----------------------------------
+We are doing automation for (N-1) release
+N=3
+N-1=2 
+========================================================
+
+# Automation Tools
+----------------------
+- More focused on Web testing
+- Web automation testing  ==>
+- not for mobile automation
+xyz.exe ==> Desktop app tester -->not 
+mobile ==> ignore
+Web app==> Concentrate
+
+1. Selenium --> free  ==> 
+2. Sahi/ Sahi Pro
+3. ATP
+4. Selendroid
+5. Appium--> mobile app test
+6. Katalon studio
+7. Cypruss
+
+
+# Why Selenium
+--------------------
+1. open source
+2. multi lanhuage support
+3. cross browser testing possible (chrome/ mozilla/ IE/ Edge/ Saffari)
+4. Cross platform testing possible (Window, MAC, iOS)
+
+# Disavantage
+------------------
+1. cannot automate desktop/ standalone app
+2. Cannot to automate captcha (image/digit & char)
+ excep: Math captcha possible
+        22-4   18
+3. selenium cannot support file uploading
+4. Adhoc testing not posible
+5. cannot read barcode
+
+=====================
+Java concepts used in automations:
+- Interface
+- Inheritance
+- Polymorphism
+- casting 
+- Encapsuation
+- Abstraction
+- Arrays
+- Colections (Iterators)
+- for loop, for each loop, While loop 
+- control statements (if else, case, switch)
+- String
+
+======================================
+Feedback: 5
+
+1. Manual concepts                 4.5
+2. Backend testing (API/ SQL)      4.0
+3. Java concepts                   2.5                   
+4. Automation concepts             4.0
+5. communication skill             4.0
+
+Recomnded/ Not recommend:  recommended for next round
+------------------------------------------
+Suggestion: Select for next
+
+===============================================
+# Selenium Flavors
+--------------------
+1. Selenium IDE --> firefox/ server not required/ full xpath
+2. Selenium RC --> all browsers/ server
+3. Selenium grid --> Paralle testing
+4. Selenium WebDriver (4.0)--> 
+- support all browser
+- server not
+- xpath-- no need to apply full xpath
+=================================================
+
+# Selenium Architecture
+-----------------------------------
+- Serach Context (Interface):supermost interface which contain "abstract methods" & 
+   inherited to webdriver interfce using extends keyword
+- WebDriver (Interface):it contain "abstract methods" of search context 
+  and its own abstract methos
+- All abstract methods are implemented/ overrriden in selenium remote webdriver class using 
+   "implemets" keyword
+- Selenium remote WebDriver class is extended to different browser 
+  such as FF, Chrome, edge, IE etc
+- We can run the script which is develop using any single browser and run for different browser
+ So, to do this we need to use "runtime polymorphism" by using "upcasting" in selenium
+- So we need to create an Object of "ChromoDriver" class with reference of WebDriver Interface
+
+ # creating object
+ className Obj=new className();
+
+WebDriver driver=new ChromoDriver();
+WebDriver driver=new geckoDriver();
+WebDriver driver=new IEDriver();
+
+================================================
+# How to open a browser in selenium
+-------------------------------------
+1. Eclipse
+2. Add Selenium jars to the current project
+3. Compatable Drivers for different browsers (check vesion and download the driver for same)
+4. create Junit project
+
+
+Steps to open the browser:
+-----------------------------
+1. Download the selenium jar from google and Add it in project
+- Right click on project
+- click on Built path
+- click on congigure built path
+- Choose classpath
+- click on Add external Jars
+- Select all jar files
+- Apply
+- Apply & close
+
+2. set the path of "ChromeDriver.exe" file using method
+   System.setProperty ("Browser", "path")
+- System.setProperty ("WebDriver.ChromeDriver", "path")
+
+- Download the drivers (as oper existing browser compatability/ version)
+ 1. chromeDriver.exe
+ 2. gecoDriver.exe
+ 3. msedgeDriver.exe
+
+3. create an object of Chromedriver class & store in one of ref variable with ref to WebDriver interface.
+   WebDriver driver=new ChromoDriver();
+4. use get() method to write URL of website
+
+
+# Open Chrome Browser
+package openBrowser;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class OpenChromeBrowser {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "D:\\Softwares\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		
+		driver.get("https://www.facebook.com/");
+	}
+
+}
+------------------------------------
+# Open Firefox Browser
+package openBrowser;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class OpenMozillaBrowser {
+
+	public static void main(String[] args) {
+			System.setProperty("webdriver.gecko.driver", "D:\\Softwares\\geckodriver.exe");
+			WebDriver driver=new FirefoxDriver();
+			
+			driver.get("https://www.facebook.com/");
+
+	}
+
+}
+---------------------------------------
+# Open Edge Browser
+package openBrowser;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class OpenEdgeBrowser {
+	
+	public static void main(String[] args) {
+		System.setProperty("webdriver.edge.driver", "D:\\Softwares\\msedgedriver.exe");
+		WebDriver driver=new EdgeDriver();
+		driver.get("https://www.facebook.com/");
+
+}
+
+}
+
+-----------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
