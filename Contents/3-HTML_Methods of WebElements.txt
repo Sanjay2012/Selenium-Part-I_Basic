@@ -1,0 +1,126 @@
+Session-3
+===============
+1. HTML Basic
+2. Some methods of WebElements
+
+-------------------------------------
+
+1. HTML Basic
+----------------
+- HTML-->page creation (element)
+- CSS--> style, color, alignment
+write a html code for 
+ -webpage title SignIn page
+
+ Textbox (Webelements)
+ - Username
+ - First Name
+ - Last Name
+ - EmailId
+ - Password
+ - Confirm Password
+ - Mobile No
+ 
+ Radio button
+ - Gender (Male/Female)
+
+ url
+- gmail url
+
+ Checkbox
+- Remember me
+
+ Dropdown
+- Country (India, USA, ENG etc)
+
+ button
+- Submit
+ 
+-------------------------------------------------------
+ 1. html- to create webpage
+ 2. Every keword should be closed within angular braces using /
+ 3. input- used to create element/component
+ 4. select- used while creating dropdown/list
+ 5. link - a href
+ 6. table- to create webtable
+ 7. img - to while creating a image
+
+# tagname
+-------------
+Any keyword which is present immediatly after angular brace (<)
+ex. html, title, body, table etc
+
+# Attribute
+-------------
+Any keyword which is present after tagname with equal to symbol until > brace
+- pair
+- attribute Name=attribute Value
+ex. type="text"
+    id= "1234"
+    type="radio", type="checkbox"
+
+
+# text
+------------
+Any keyword which is present in between angular braces ==  > text <
+
+ex. > gmailPage <
+
+
+----------------------
+Methods of WebElement
+------------------
+1. Sendkey:
+used to send the text into the textbox 
+
+
+package webElements;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Sendkeys {
+
+	public static void main(String[] args) throws InterruptedException {
+
+		System.setProperty("webdriver.chrome.driver", "D:\\Softwares\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://www.facebook.com/");
+		
+		Thread.sleep(5000);
+		
+		driver.manage().window().maximize();
+		
+		String title = driver.getTitle();
+		System.out.println(title);
+		
+		driver.findElement(By.xpath("//input[@class=\"inputtext _55r1 _6luy\"]")).sendKeys("madeeasyctc@gmail.com");
+		
+		Thread.sleep(3000);
+		
+		driver.findElement(By.xpath("//input[@type=\"password\"]")).sendKeys("CTC@123");
+
+	}
+
+}
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+

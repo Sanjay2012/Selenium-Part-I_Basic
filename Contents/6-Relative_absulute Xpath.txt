@@ -1,0 +1,109 @@
+Session-7:
+======================
+Agenda:
+----------------------
+Absolute xpath
+Relative xpath
+--------------------------
+
+Absolute Xpath:
+----------------------
+- Navigate from root of parent to immediate child
+- to show immediate child we use single forword slash (/)
+- xpath is too lengthy and time consuming
+- need to prepare html tree diagram to identify elements
+
+
+Relative Xpath:
+----------------------
+- Navigate from root of parent to any child
+- to show immediate child we use single forword slash (//)
+
+
+Example
+------------
+1. Write html code for following web page
+
+UN<text box>
+PWD<text box>
+Email<text box>
+
+link1 <sample1.html>
+country<text box>
+contact<text box>
+
+link2 <sample2.html>
+link3 <sample3.html>
+link4 <sample4.html>
+
+link5 <sample5.html>
+DOB<text box>
+link6 <sample6.html>
+
+--------------------------------------------------
+<html>
+<body>
+<div>
+UN<input type="text"><br>
+PWD<input type="password"><br>
+Email<input type="email"><br>
+</div>
+
+<div>
+link1 <a href="sample1.html">link1</a><br>
+country<text box>
+contact<text box>
+</div>
+
+<div>
+link2 <a href="sample2.html">link2</a><br>
+link3 <a href="sample3.html">link3</a><br>
+link4 <a href="sample4.html">link4</a><br>
+</div>
+
+<div>
+link5 <a href="sample5.html">link5</a><br>
+DOB<input type="birthday"><br>
+link6 <a href="sample6.html">link6</a><br>
+</div>
+</body>
+</html>
+--------------------------------------------------
+# html tree diagram
+
+html
+|
+body
+|
+div[1]
+|   	- input[1]--UN
+|	- input[2]--pwd
+|	- input[3]-- email
+div[2]
+|   	- a[1]   -- link1
+|	- input[1]-- country
+|	- input[2]-- contact
+div[3]
+|   	- a[1]-- link2
+|	- a[2]-- link3
+|	- a[3]-- link4
+div[4]
+   	- a[1]  -- link5
+	- input[1]-- DOB
+	- a[2]-- link6
+
+--------------------------------------------------------------------
+
+#
+Elements           Absolute xpath              Relative xpath
+-----------------------------------------------------------------------
+
+1. username   /html/body/div[1]/input[1]       //div[1]/input[1]
+2. password   /html/body/div[1]/input[2]       //div[1]//input[2]
+3. email      /html/body/div[1]/input[3]       //div[1]//input[3]
+4. link1      /html/body/div[2]/a[1]           //div[2]/a[1]   or //a[1]
+5. all links  /html/body/div/a                 //div//a
+6. country    /html/body/div[2]/input[1]       //div[2]//input[1]
+7. contact    /html/body/div[2]/input[2]       //div[2]//input[2]
+8. BOB        /html/body/div[4]/input[1]       //div[4]//input[1]
+9. link6      /html/body/div[4]/a[2]           //div[4]//a[2]

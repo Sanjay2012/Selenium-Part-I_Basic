@@ -1,0 +1,246 @@
+Session-2
+
+Selenium WebDriver
+====================
+1. Methods of WebDriver
+
+---------------------------
+
+# Methods of WebDriver
+--------------------------
+1. get() method:
+- Syntax: get(url)
+- to open the application in specific browser
+- parameter= url
+- driver.get(url);
+
+Example:
+              WebDriver driver=new ChromeDriver();
+	      driver.get("https://www.facebook.com/");
+
+Note:we get webdriver exception when url is not correct
+----------------------------------------
+2. close();
+close the current tab of a browser
+driver.close();
+
+3. quite();
+- used to close all tabs of the browser
+- terminate browser session
+
+
+package methodsOfWebDriver;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Get_Close {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "D:\\Softwares\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://www.facebook.com/");
+		//driver.close();
+		driver.quit();
+	}
+}
+
+------------------------------------------------------------------
+
+4. getTitle()
+- get the title of the webpage as output
+- return type "String"
+
+package methodsOfWebDriver;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class GetTitle {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.setProperty("webdriver.chrome.driver", "D:\\Softwares\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://www.facebook.com/");
+		
+		String title = driver.getTitle();
+		System.out.println(title);
+		
+		String expTitle = "Facebook – log in or sign up";
+		if (title.equalsIgnoreCase(expTitle)) {
+			System.out.println("Navigated to correct page");
+		}
+		else {
+			System.out.println("Navigated to wrong page");
+		}
+		
+		driver.quit();
+
+--------------------------------------------
+5. getCurrentUrl();
+- used to get the url of current webpage
+- return type String
+
+
+package methodsOfWebDriver;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class GetTitle {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		
+		System.setProperty("webdriver.chrome.driver", "D:\\Softwares\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://www.facebook.com/");
+		
+		Thread.sleep(5000);
+		
+		driver.manage().window().maximize();
+		
+		String title = driver.getTitle();
+		System.out.println(title);
+		
+		String expTitle = "Facebook – log in or sign up";
+		if (title.equalsIgnoreCase(expTitle)) {
+			System.out.println("Navigated to correct page");
+		}
+		else {
+			System.out.println("Navigated to wrong page");
+		}
+		
+		String pageUrl = driver.getCurrentUrl();
+		System.out.println(pageUrl);
+		
+		Thread.sleep(5000);
+		
+		driver.quit();
+		
+		
+		
+
+	}
+
+}
+----------------------------------
+
+6. maximize();
+- maximize the browser
+- Syntax:
+ driver.manage().window().maximize();
+-Ex:
+ WebDriver driver=new ChromeDriver();
+ driver.get("https://www.facebook.com/");
+ driver.manage().window().maximize();
+
+
+
+-----------------------
+
+# Thread.sleep(time): 
+  wait the process for specific time after first task 
+  and then after "time" it will execute nect operation
+
+7. navigate():
+-----------------
+- same as get method, but along with it can be used to perform following task
+ 1. forword
+ 2. backword
+ 3. refresh
+
+# open url
+
+WebDriver driver=new ChromeDriver();
+driver.naviagate().To("https://www.facebook.com/");
+
+
+# F/B/R
+
+WebDriver driver=new ChromeDriver();
+driver.naviagate().To("https://www.google.com/");
+driver.naviagate().back();
+
+package methodsOfWebDriver;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Navigate {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		
+		System.setProperty("webdriver.chrome.driver", "D:\\Softwares\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.navigate().to("https://www.facebook.com/");
+		
+		Thread.sleep(3000);
+		
+		driver.navigate().to("https://www.google.com/");
+		Thread.sleep(3000);
+		driver.navigate().back();
+		Thread.sleep(3000);
+		driver.navigate().forward();
+		Thread.sleep(3000);
+		driver.navigate().refresh();
+		Thread.sleep(3000);
+		
+	}
+
+}
+-------------------------
+
+8. setSize();
+- used to change the size of a browser
+- Accept Dimentions as an Argument-- H, W
+- Dimention is class
+
+
+
+9. setPosition();
+-- used to change the position of a browser
+- Accept Point as an Argument-- X,Y (pixels)
+- Point is class
+
+
+package methodsOfWebDriver;
+
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SetSize_Position {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		
+		System.setProperty("webdriver.chrome.driver", "D:\\Softwares\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://www.facebook.com/");
+		
+		Thread.sleep(3000);
+		
+		Dimension D=new Dimension(100, 500);
+		driver.manage().window().setSize(D);
+		
+		Thread.sleep(3000);
+		
+		Point P=new Point(50, 100);
+		driver.manage().window().setPosition(P);
+
+	}
+
+}
+
+---------------------------------------------------------------
+
+
+
+
+
+

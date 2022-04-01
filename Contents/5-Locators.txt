@@ -1,0 +1,237 @@
+Session-5
+------------------
+WebDriver driver=new ChromeDriver();
+
+// Object 
+
+ChromeDriver driver=new ChromeDriver();
+--------------------------
+# can we write like this while executing a script
+Why not?
+WebDriver driver=new WebDriver();
+
+- Since Webdriver is an interface & we cannot create an object for interface
+- We have search context & webdriver interfaces which contains the abstract methods which can
+  completed/ implemented in "Remote Webdriver" - Implementation class
+-Remote webdriver is extended to browser classes Chrome, IE, FF, Edge
+
+WebDriver driver=new ChromeDriver();
+
+// Object 
+
+ChromeDriver driver=new ChromeDriver();
+
+- Cross browser compatability
+- We dont just have to run script only for single browser
+- object of classes (Chrome, IE, FF, Edge) by taking reference of an interface "Webdriver"
+
+        Webdriver
+(it contains methods
+  get(), findelement(). etc)
+            |
+            |
+        Remote Webdriver
+(defination/ impementation of method)
+
+- local machine
+--------------------------------------
+
+# For remote server
+
+WebDriver driver=new RemoteWebDriver(new url desired capabilities.Chrome());
+
+
+=================================================================
+
+# Locators
+---------------
+- used to identify the webelements using "locators type"
+- to identify elemet in webpage we need to use "findElement()" method
+- Syntax:
+ WebDriver RV=new CD();
+RV.findElement(By.<arg>)
+
+-By- class--> findElement() method will identifys the elements witj the help of By class
+ It contain  static methods
+- All the static methods present in By class are called as Locators type
+
+# Locators Type
+------------------
+1. tagName()
+2. id()
+3. className()
+4. name()
+5. linkText()
+6. partialLinkText()
+7. cssSelector()
+8. xpath()
+
+- All loactors takes "String" as an input and return type is By
+- the return type of findElement() is "WebElement"
+
+
+-------------------------------------------------------------
+# tagName: 
+Note: create your own html code which contain UN and PWD fields
+-------------------
+WAS to enter the email in a webpage "Username"
+1. open browser
+2. open webpage by entering url
+3. identify username field and enetr the email (# tagname)
+
+- Drwaback==> we cannot used this locator to identify element uniquly
+- we have many elements with same tagname
+- its refer the first element only
+- Exception: noSuchElement ---> if unable to locate anelement
+
+package locators;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Tagname {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.setProperty("webdriver.chrome.driver", "D:\\Softwares\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		
+		driver.get("file:///D:/MindMAPS/Automation/Signin.html");
+		driver.manage().window().maximize();
+		
+		driver.findElement(By.tagName("input")).sendKeys("madeeasyctc@gmail.com");
+
+	}
+
+}
+---------------------------------
+#Id
+-----
+-used if any element contain id attribute in html code
+
+package locators;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class IdLocator {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "D:\\Softwares\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		
+		driver.get("https://www.facebook.com/");
+		driver.manage().window().maximize();
+		
+		driver.findElement(By.id("email")).sendKeys("sanjay@in.in");
+		
+		Thread.sleep(3000);
+		
+		driver.findElement(By.id("pass")).sendKeys("Shiv@123");
+
+	}
+
+}
+-----------------------------
+
+# Name locator
+-------------
+package locators;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class NameLocator {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "D:\\Softwares\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		
+		driver.get("https://www.facebook.com/");
+		driver.manage().window().maximize();
+		
+		driver.findElement(By.name("email")).sendKeys("sanjay@in.in");
+		
+		Thread.sleep(3000);
+		
+		driver.findElement(By.name("pass")).sendKeys("Shiv@123");
+
+	}
+
+	}
+
+------------------------------------
+# Class locators
+------------------
+
+
+------------------------------------------
+# linkText() & partialLinkText()
+
+When we should use??
+- when above mentioned attributes not present in html code
+- linkText()- need to give whole text as input
+- partialLinkText()- few char from text also sufficient
+
+package locators;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class TextLocator {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "D:\\Softwares\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		
+		driver.get("https://www.facebook.com/");
+		driver.manage().window().maximize();
+		
+		//driver.findElement(By.linkText("Forgotten password?")).click();
+		
+		driver.findElement(By.partialLinkText("Forgotten")).click();
+	}
+
+}
+------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
